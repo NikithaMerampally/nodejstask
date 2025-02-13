@@ -1,0 +1,26 @@
+{
+  "name": "typecsriptproj",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NikithaMerampally/nodejstask.git"
+  },
+  "scripts": {
+    "start": "npx tsc && node dist/app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "express": "^4.21.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.29",
+    "@types/pg": "^8.11.3",
+    "drizzle-kit": "^0.20.14",
+    "neon-cli": "^0.10.1",
+    "typescript": "^5.4.5"
+  }
+}
