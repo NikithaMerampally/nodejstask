@@ -12,25 +12,28 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.getUsersByEmail = exports.createUser = void 0;
 const userschema_1 = __importDefault(require("../schemas/userschema"));
-const createUser = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+const createUser = (body) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        let userdata = req.body;
+        let userdata = body;
         let createUser = yield userschema_1.default.create(userdata);
         if (createUser)
-            return res.status(200).send({ message: "User Created Successfully", data: createUser });
+            return createUser;
     }
     catch (err) {
-        console.log(err);
-        return res.status(400).send({ message: "Unable to create User" });
+        throw new Error(err.message);
     }
 });
-const getUsers = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+exports.createUser = createUser;
+const getUsersByEmail = (email) => __awaiter(void 0, void 0, void 0, function* () {
     try {
+        const getallusers = yield userschema_1.default.find({ email: email });
+        return getallusers;
     }
     catch (error) {
         console.log(error);
-        return res.status(400).send({ message: "Unable to create User" });
+        throw new Error(error.message);
     }
 });
-module.exports.createUser = createUser;
+exports.getUsersByEmail = getUsersByEmail;
