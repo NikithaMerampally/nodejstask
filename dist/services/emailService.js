@@ -11,12 +11,13 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.sendEmail = void 0;
 const client_ses_1 = require("@aws-sdk/client-ses");
+require('dotenv').config();
 // Initialize the SES client
 const sesClient = new client_ses_1.SESClient({
-    region: 'ap-south-1',
+    region: process.env.AWS_REGION,
     credentials: {
-        accessKeyId: 'AKIAXL6CT7NEMLHAFW6V',
-        secretAccessKey: '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',
+        accessKeyId: process.env.AWS_ACCESS_KEY,
+        secretAccessKey: process.env.AWS_SECRET_KEY,
     },
 });
 const sendEmail = (params) => __awaiter(void 0, void 0, void 0, function* () {

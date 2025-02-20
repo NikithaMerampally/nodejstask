@@ -1,12 +1,12 @@
 import { SESClient, SendEmailCommand } from '@aws-sdk/client-ses';
-
+require('dotenv').config();
 
 // Initialize the SES client
 const sesClient = new SESClient({
-    region: 'ap-south-1',
+    region: process.env.AWS_REGION,
     credentials: {
-      accessKeyId: 'AKIAXL6CT7NEMLHAFW6V',
-      secretAccessKey: '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',
+      accessKeyId: process.env.AWS_ACCESS_KEY,
+      secretAccessKey: process.env.AWS_SECRET_KEY,
     },
   });
 

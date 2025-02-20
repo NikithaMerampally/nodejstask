@@ -50,6 +50,11 @@ const sendEmailSes = function (req, res) {
                 subject: 'Test Email',
                 bodyHtml: '<h1>Hello from SES!</h1>',
                 fromAddress: 'merampallynikitha@gmail.com',
+            }).then(data => {
+                return res.status(200).send({ message: "Email sent successfully" });
+            }).catch(error => {
+                console.log(error);
+                return res.status(400).send({ message: "unable to send Email" });
             });
         }
         catch (error) {
