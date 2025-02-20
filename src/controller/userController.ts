@@ -26,7 +26,7 @@ export const getUserInfo = async function (req, res) {
 export const sendEmailSes = async function (req, res) {
     try {
         sendEmail({
-            toAddresses: ["nikitha.merampally@tekreant.com"],
+            toAddresses: ["merampallyshashikala@gmail.com"],
             subject: 'Test Email',
             bodyHtml: '<h1>Hello from SES!</h1>',
             fromAddress: 'merampallynikitha@gmail.com',

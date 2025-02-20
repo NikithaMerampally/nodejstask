@@ -46,7 +46,7 @@ const sendEmailSes = function (req, res) {
     return __awaiter(this, void 0, void 0, function* () {
         try {
             (0, emailService_1.sendEmail)({
-                toAddresses: ["nikitha.merampally@tekreant.com"],
+                toAddresses: ["merampallyshashikala@gmail.com"],
                 subject: 'Test Email',
                 bodyHtml: '<h1>Hello from SES!</h1>',
                 fromAddress: 'merampallynikitha@gmail.com',
