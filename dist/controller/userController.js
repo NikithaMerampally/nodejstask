@@ -9,8 +9,9 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getUserInfo = exports.craeteUser = void 0;
+exports.sendEmailSes = exports.getUserInfo = exports.craeteUser = void 0;
 const userService_1 = require("../services/userService");
+const emailService_1 = require("../services/emailService");
 const craeteUser = function (req, res) {
     return __awaiter(this, void 0, void 0, function* () {
         try {
@@ -41,3 +42,20 @@ const getUserInfo = function (req, res) {
     });
 };
 exports.getUserInfo = getUserInfo;
+const sendEmailSes = function (req, res) {
+    return __awaiter(this, void 0, void 0, function* () {
+        try {
+            (0, emailService_1.sendEmail)({
+                toAddresses: ["nikitha.merampally@tekreant.com"],
+                subject: 'Test Email',
+                bodyHtml: '<h1>Hello from SES!</h1>',
+                fromAddress: 'merampallynikitha@gmail.com',
+            });
+        }
+        catch (error) {
+            console.log(error);
+            return res.status(200).send({ message: "Unable to send sms" });
+        }
+    });
+};
+exports.sendEmailSes = sendEmailSes;

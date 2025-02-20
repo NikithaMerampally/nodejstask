@@ -1,5 +1,5 @@
-import {createUser, getUsersByEmail} from  '../services/userService'
-
+import {createUser, getUsersByEmail, } from  '../services/userService'
+import {sendEmail} from "../services/emailService"
 export const craeteUser= async function(req,res){
     try{
         const body= req.body
@@ -19,5 +19,20 @@ export const getUserInfo = async function(req, res){
     }catch(error){
         console.log(error)
         return res.status(500).send("Internal Server Error")
+    }
+}
+
+export const sendEmailSes= async function(req,res){
+    try{
+        sendEmail({
+  toAddresses: ["nikitha.merampally@tekreant.com"],
+  subject: 'Test Email',
+  bodyHtml: '<h1>Hello from SES!</h1>',
+  fromAddress: 'merampallynikitha@gmail.com',
+});
+
+    }catch(error){
+        console.log(error)
+        return res.status(200).send({message : "Unable to send sms"})
     }
 }
