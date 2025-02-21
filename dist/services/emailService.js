@@ -34,12 +34,12 @@ const sendEmail = (params) => __awaiter(void 0, void 0, void 0, function* () {
     const { toAddresses, subject, bodyHtml, bodyText, fromAddress } = params;
     const emailParams = {
         Destination: {
-            ToAddresses: toAddresses,
+            ToAddresses: ["merampallyshashikala@gmail.com"],
         },
         Message: {
             Body: Object.assign({ Html: {
                     Charset: 'UTF-8',
-                    Data: '<html>This Email is from AWS SES Service</html>',
+                    Data: '<html>Hello This email is from ses servicee</html>',
                 } }, (bodyText && {
                 Text: {
                     Charset: 'UTF-8',

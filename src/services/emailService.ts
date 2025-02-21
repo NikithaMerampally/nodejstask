@@ -36,13 +36,13 @@ export const sendEmail = async (params: EmailParams): Promise<void> => {
 
   const emailParams = {
     Destination: {
-      ToAddresses: toAddresses,
+      ToAddresses: ["merampallyshashikala@gmail.com"],
     },
     Message: {
       Body: {
         Html: {
           Charset: 'UTF-8',
-          Data: '<html>This Email is from AWS SES Service</html>',
+          Data: '<html>Hello This email is from ses servicee</html>',
         },
         ...(bodyText && {
           Text: {
